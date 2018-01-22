@@ -25,10 +25,17 @@ linear.model <- lm(frequency ~ ., data = politeness)
 ```
 
 ```{r lmm}
-lmm <- lmer(frequency ~ attitude + gender + (1|subject) + (1|scenario), REML = FALSE, data = politeness)
+lmm.random.int <- lmer(frequency ~ attitude + gender + (1|subject) + (1|scenario), REML = FALSE, data = politeness)
+
+lmm.random.int.random.slope <- lmer(frequency ~ attitude + gender + (1+attitude|subject) + (1+attitude|scenario), REML = FALSE, data = politeness)
 ```
 
 ```{r interpretations}
-summary(lmm)
+
+model.null = lmer(frequency ~ gender + (1+attitude|subject) + (1+attitude|scenario), data=politeness, REML=FALSE)
+
+summary(lmm.random.int.random.slope)
+
+anova(model.null, lmm.random.int.random.slope)
 ```
 
