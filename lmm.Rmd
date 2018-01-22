@@ -27,3 +27,8 @@ linear.model <- lm(frequency ~ ., data = politeness)
 ```{r lmm}
 lmm <- lmer(frequency ~ attitude + gender + (1|subject) + (1|scenario), REML = FALSE, data = politeness)
 ```
+
+```{r interpretations}
+summary(lmm)
+```
+
