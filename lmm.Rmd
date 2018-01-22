@@ -32,7 +32,7 @@ lmm.random.int.random.slope <- lmer(frequency ~ attitude + gender + (1+attitude|
 
 ```{r interpretations}
 
-model.null = lmer(frequency ~ gender + (1+attitude|subject) + (1+attitude|scenario), data=politeness, REML=FALSE)
+null.model <- lmer(frequency ~ gender + (1+attitude|subject) + (1+attitude|scenario), data = politeness, REML = FALSE)
 
 summary(lmm.random.int.random.slope)
 
