@@ -1,0 +1,21 @@
+---
+title: "LMM"
+author: "Davide Behr, Miriam Hu, Eugene Kahng, Sean Riordan, Syaza Senin, Jessica Toney"
+date: "January 21, 2018"
+output: pdf_document
+---
+
+```{r, include = FALSE}
+library(knitr)
+library(tidyverse)
+
+opts_chunk$set(echo = FALSE,
+               cache = TRUE, autodep = TRUE,
+               message = FALSE, warning = FALSE)
+options(show.signif.stars = FALSE)
+```
+
+```{r load-data}
+politeness <- read.csv("http://www.bodowinter.com/tutorial/politeness_data.csv")
+attach(politeness)
+```
