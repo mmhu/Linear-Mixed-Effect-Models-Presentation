@@ -8,6 +8,7 @@ output: pdf_document
 ```{r, include = FALSE}
 library(knitr)
 library(tidyverse)
+library(lme4)
 
 opts_chunk$set(echo = FALSE,
                cache = TRUE, autodep = TRUE,
@@ -17,5 +18,12 @@ options(show.signif.stars = FALSE)
 
 ```{r load-data}
 politeness <- read.csv("http://www.bodowinter.com/tutorial/politeness_data.csv")
-attach(politeness)
+```
+
+```{r linear-model}
+linear.model <- lm(frequency ~ ., data = politeness)
+```
+
+```{r lmm}
+lmm <- lmer(frequency ~ attitude + gender + (1|subject) + (1|scenario), REML = FALSE, data = politeness)
 ```
